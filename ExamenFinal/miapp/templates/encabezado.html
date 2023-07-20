@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>
+    {% block title %}
+    {% endblock %} 
+    |Kevin Andre
+    </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+</head>
+<body>
+    <header>
+        <div id="logotipo">
+            <img src="{% static 'imagenes/logo.png' %}"/>
+        </div>
+    </header>
+        <nav>
+            <ul>
+                <li >
+                    <a  aria-current="page" href="{% url 'Pais' %}" style="color: #b8cc03;">Pais</a>
+                </li>
+                <li>
+                    <a  href="{% url 'RegistrarPais' %}" style="color: #b8cc03;">Crear Pais</a>
+                </li>
+                <li>
+                    <a href="{% url 'Editorial' %}" style="color: #b8cc03;">Editorial</a>
+                </li>
+                <li>
+                    <a href="{% url 'CrearEditorial' %}" style="color: #b8cc03;">Crear Editorial</a>
+                </li>
+            </ul>
+                
+                
+                
+              
+          </nav>
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+        </div>
+        <div id="content">
+            <div class="box">
+            {% block content %}
+                <strong> Contenido en layout (Padre) </strong>
+            {% endblock %}
+        </div>
+        
+        <footer>
+        UNTELS - Lenguaje de Programación III &copy; ENRIQUE, GOMEZ, URETA - {% now "d/m/Y h:m:s" %}
+            
+        </footer>
+
+
+</body>
+</html>
