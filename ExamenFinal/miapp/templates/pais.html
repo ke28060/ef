@@ -4,7 +4,23 @@
 {% endblock %}
 {% block content %}
     <h1 class="title">LISTADO DE PAISES </h1>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="message">
+            {{message}}
+        </div>
+    {% endfor %}
+{% endif %}
 
-    
+    {% for pais in pais %}
+    <li>
+        <h4>{{pais.id}} - Codigo: {{pais.code}} - nombre: {{pais.nombre}}</h4> 
+        <span>poblacion: {{pais.poblacion}} - Estatus: {{pais.estado}}</span>
+        <p>
+            
+            <a href="{% url 'eliminar_pais' id=pais.id %}">Eliminar</a>
+        </p>
+    </li>
+{% endfor %}
 <p>Año: 2023</p>
 {% endblock %}

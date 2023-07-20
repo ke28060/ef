@@ -20,9 +20,12 @@ from miapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',views.pais,name='Pais'),
     path('RegistrarPais/',views.Crearpais, name="RegistrarPais"),
+    path('EliminarPais/<int:id>',views.eliminar_pais, name="eliminar_pais"),
+    path('save_curso', views.Crear_pais, name="crear_pais" ),
     path('Editorial/',views.editoriales, name="Editorial"),
     path('CrearEditorial/',views.CrearEditorial, name="CrearEditorial"),
-    path('',views.pais,name='Pais'),
+    
     
 ]
