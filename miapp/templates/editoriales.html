@@ -1,0 +1,25 @@
+{% extends 'encabezado.html' %}
+{% block title %}
+    {{titulo}}
+{% endblock %}
+{% block content %}
+    <h1 class="title">Listado de Editoriales</h1>
+    {% for editorial in editoriales %}
+    <tr>
+        <td>{{ editorial.nombre }}</td>
+        <td><a href="{{ editorial.url }}">{{ editorial.url }}</a></td>
+        <td>
+            {% if editorial.imagen %}
+                <img src="{{ editorial.imagen.url }}" width="50">
+            {% else %}
+                <span class="no-image">Sin imagen</span>
+            {% endif %}
+        </td>
+        <td>{% if editorial.estado %}Activo{% else %}Inactivo{% endif %}</td>
+        <td class="actions">
+            <a href="{% url 'eliminar_editorial' editorial.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+<p>Año: 2023</p>
+{% endblock %}

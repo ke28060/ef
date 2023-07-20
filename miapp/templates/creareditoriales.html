@@ -1,0 +1,33 @@
+{% extends 'encabezado.html' %}
+{% block title %}
+{{titulo}}
+{% endblock %}
+{% block content %}
+
+<h1 class="title">Registrar Editoriales </h1>
+<div>
+    <div style="width: 20%;">
+    <form action= "{%url 'crear_editorial' %}"method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="nombre" >Nombre:</label>
+        <input type="text" name="nombre" id="nombre" >
+        
+        <label for="url" >url:</label>
+        <input type="text" name="url" id="url" >
+        
+        <label for="image" >Imagen:</label>
+        <input type="file" name="image" id="id_image" >
+        
+        <label for="estado">Estado:</label>
+        <select name="estado">
+            <option value="En curso">En curso</option>
+            <option value="Finalizado">Finalizado</option>
+        </select>
+        
+        <input type="submit" value="Guardar" >
+    </form>
+</div>
+</div>
+
+
+{% endblock %}
